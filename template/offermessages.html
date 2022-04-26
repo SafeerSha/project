@@ -1,0 +1,56 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+</aside>
+</div>
+<div class="col-sm-12 col-md-8 col-lg-9">
+<div class="page-content">
+<div class="inner-box">
+
+<div class="dashboard-wrapper">
+<div class="dashboardboxtitle">
+<h2>Offers</h2>
+</div>
+<table class="table table-responsive dashboardtable tablemyads">
+<thead>
+<tr>
+<th>User</th>
+<th>Title</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+{% for i in data %}
+<tr data-category="active">
+
+<td>{{i.senduser}}</td>
+<td data-title="Title">
+<h3>{{i.product}}</h3>
+</td>
+<td data-title="Category"><span class="adcategories"></span>{{i.phone}}</td>
+<td data-title="Price">
+<h3>{{i.email}}</h3>
+</td>
+<td>
+{{i.date_added}}
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

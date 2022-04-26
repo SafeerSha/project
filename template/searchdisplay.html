@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<section class="featured section-padding">
+<div class="container">
+<div class="row">
+<div class="col-12 text-center">
+<div class="heading">
+<h1 class="section-title">Search  Results</h1>
+<h4 class="sub-title">Discover & connect with top-rated local businesses</h4>
+</div>
+</div>
+ {% for shop in filtered_items.qs %}
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+<div class="featured-box">
+<figure>
+<div class="homes-tag featured">{{shop.category}}</div>
+<span class="price-save">
+${{shop.price}}
+</span>
+<a href="#"><img class="img-fluid" src="{{i.file.url}}" alt=""></a>
+</figure>
+<div class="content-wrapper">
+<div class="feature-content">
+<h4><a href="/ads-details">{{shop.product}}</a></h4>
+<p class="listing-tagline">Club and shop for you</p>
+<div class="meta-tag">
+<div class="user-name">
+<a href="#"><i class="lni-user"></i> {{shop.Name}}</a>
+</div>
+<div class="listing-category">
+<a href="#"><i class="lni-display"></i>{{shop.category}} </a>
+</div>
+</div>
+</div>
+<div class="listing-bottom clearfix">
+<a href="#" class="float-left"><i class="lni-map-marker"></i> {{i.state}},{{i.country}}</a>
+<a href="{% url 'view' pk=i.pk %}" class="float-right">View Details</a>
+</div>
+</div>
+</div>
+</div>
+ {% endfor %}
+</div>
+</div>
+</section>
+</body>
+</html>
+
+{% endblock %}
